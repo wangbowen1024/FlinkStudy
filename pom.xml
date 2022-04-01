@@ -67,6 +67,36 @@
             <artifactId>flink-connector-kafka_${scala.binary.version}</artifactId>
             <version>${flink.version}</version>
         </dependency>
+        <!-- redis 没有涉及核心组件，所以应该可以用-->
+        <dependency>
+            <groupId>org.apache.bahir</groupId>
+            <artifactId>flink-connector-redis_2.11</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <!-- es 版本多少后面跟多少数字，elasticsearch7 -->
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-connector-elasticsearch7_${scala.binary.version}</artifactId>
+            <version>${flink.version}</version>
+        </dependency>
+        <!-- JDBC连接器 -->
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-connector-jdbc_${scala.binary.version}</artifactId>
+            <version>${flink.version}</version>
+        </dependency>
+        <!-- 对应的JDBC依赖(这里以PG为例) -->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.2.6</version>
+        </dependency>
+        <!-- hbase -->
+        <dependency>
+            <groupId>org.apache.hbase</groupId>
+            <artifactId>hbase-client</artifactId>
+            <version>2.0.2</version>
+        </dependency>
     </dependencies>
 
 </project>

@@ -16,7 +16,7 @@ public class KafkaSource {
 
         // kafka 配置
         Properties properties = new Properties();
-        properties.put("bootstrap.servers", "192.168.174.53:9092");
+        properties.put("bootstrap.servers", "hdp01.bigdata.com:9092,hdp03.bigdata.com:9092,hdp02.bigdata.com:9092");
         properties.put("group.id", "group-flinkstudy");
         properties.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
         properties.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");

@@ -20,8 +20,9 @@ public class KafkaSink {
         env.setParallelism(1);
 
         // 1.从Kafka读取数据
+        // 控制台生产者：bin/kafka-console-producer.sh --broker-list hdp01.bigdata.com:9092 --topic kafka-stream
         Properties properties = new Properties();
-        properties.put("bootstrap.servers", "192.168.174.53:9092");
+        properties.put("bootstrap.servers", "hdp01.bigdata.com:9092,hdp03.bigdata.com:9092,hdp02.bigdata.com:9092");
         properties.put("group.id", "group-flinkstudy");
         properties.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
         properties.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
@@ -39,8 +40,9 @@ public class KafkaSink {
         });
 
         // 3.输出到Kafka
+        // 控制台消费者：bin/kafka-console-consumer.sh --bootstrap-server hdp01.bigdata.com:9092 --topic kafka-stream-flink --from-beginning
         result.addSink(new FlinkKafkaProducer<String>(
-                "192.168.174.53:9092",  // blocker-list
+                "hdp01.bigdata.com:9092,hdp03.bigdata.com:9092,hdp02.bigdata.com:9092",  // blocker-list
                 "kafka-stream-flink",     // topic
                 new SimpleStringSchema()         // 简单字符序列化器
         ));
