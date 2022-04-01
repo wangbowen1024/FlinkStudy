@@ -42,9 +42,9 @@ public class StreamWordCount {
         dataStreamSource
                 // 这里用自定义类来代替lambda表达式，省去类型擦除的麻烦
                 .flatMap(new Tokenizer())
-                // 分组
+                // 分组（对于元组下标为0的值的hashCode作为KEY）
                 .keyBy(t -> t.f0)
-                // 聚合
+                // 聚合（对于元组下标为1的值进行聚合）
                 .sum(1)
                 // 打印（这里不会执行）
                 .print();

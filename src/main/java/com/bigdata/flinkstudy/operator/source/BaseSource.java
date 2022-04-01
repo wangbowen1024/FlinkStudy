@@ -28,7 +28,7 @@ public class BaseSource {
         collectionDss.print("collectionDss");
 
         // 2-3.从集合元素中国呢读取数据
-        DataStreamSource<Event> elementsDss = env.fromElements(        );
+        DataStreamSource<Integer> elementsDss = env.fromElements(1, 2, 3, 4);
         elementsDss.print("elementsDss");
 
         // 2-4.从Socket中读取数据（参考 com.bigdata.flinkstudy.wc.StreamWordCount）

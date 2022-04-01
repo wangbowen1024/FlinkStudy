@@ -28,7 +28,7 @@ public class BatchWordCount {
             for (String word : words) {
                 out.collect(new Tuple2<>(word, 1L));
             }
-        }).returns(Types.TUPLE(Types.STRING, Types.LONG))   // 范型擦除可以显示声明类型
+        }).returns(Types.TUPLE(Types.STRING, Types.LONG))   // 范型擦除可以显示声明类型（lambda表达式时候需要）
                 // 对元组集合中元素的第一个值作为KEY，进行分组形成 (hello, <1,1,1>)
                 .groupBy(0)
                 // 对分组后的第二个值进行聚合 （hello, 3）
