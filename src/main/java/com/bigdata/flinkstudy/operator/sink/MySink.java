@@ -47,8 +47,8 @@ class MyHBaseSinkFunction extends RichSinkFunction<Event> {
         super.open(parameters);
         // 设置配置（一般是把 hbase-site.xml 放到资源目录下）
         hbaseConf = HBaseConfiguration.create();
-        hbaseConf.set("hbase.zookeeper.quorum", "hdp01.bigdata.com:2181");
-        Connection conn = ConnectionFactory.createConnection(hbaseConf);
+        hbaseConf.set("hbase.zookeeper.quorum", "hdp01.bigdata.com:2181,hdp02.bigdata.com:2181,hdp03.bigdata.com:2181");
+        connection = ConnectionFactory.createConnection(hbaseConf);
     }
 
     @Override
