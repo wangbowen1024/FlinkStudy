@@ -9,7 +9,8 @@ import java.util.ArrayList;
 
 /**
  * 简单聚合
- * (由flink帮我们实现了，如sum、sum、min等)
+ * 由flink帮我们实现了，如sum、max、min等。
+ * 但是要注意的是滚动聚合算子会为每个处理过的键值维持一个状态。由于，这些状态不会被自动清理，所以该算子只能用于键值域有限的流。
  */
 public class SimpleAggTransform {
     public static void main(String[] args) throws Exception {
