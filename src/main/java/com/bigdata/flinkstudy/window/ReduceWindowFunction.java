@@ -42,7 +42,7 @@ public class ReduceWindowFunction {
             }
         }).keyBy(data -> data.f0)
                 /**窗口分配器*/
-                .window(TumblingEventTimeWindows.of(Time.seconds(5)))                  // 滚动窗口
+                .window(TumblingEventTimeWindows.of(Time.seconds(5)))                   // 滚动窗口
                 //.window(SlidingEventTimeWindows.of(Time.hours(1), Time.minutes(15)))  // 滑动窗口
                 //.window(EventTimeSessionWindows.withGap(Time.minutes(1)))             // 会话窗口
                 //.countWindow(100)        // 计数窗口（一个参数就是滚动，两个参数就是滑动）
@@ -53,7 +53,6 @@ public class ReduceWindowFunction {
                         return Tuple2.of(value2.f0, value1.f1 + value2.f1);
                     }
                 }).print();
-
 
         env.execute();
     }

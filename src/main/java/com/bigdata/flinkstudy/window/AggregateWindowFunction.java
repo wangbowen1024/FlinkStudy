@@ -71,10 +71,8 @@ public class AggregateWindowFunction {
                         return Tuple3.of(a.f0, a.f1 + b.f1, a.f2 + b.f2);
                     }
 
-
                 })
                 .print();
-        
 
         env.execute();
     }
